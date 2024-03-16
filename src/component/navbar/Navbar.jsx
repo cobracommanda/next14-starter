@@ -1,10 +1,10 @@
 import styles from "./navbar.module.css";
 import Links from "./links/Links"
 
-const Navbar = () => {
+const Navbar = () => { 
   return (
-    <div>
-      <div>Logo</div>
+    <div className={styles.container}>
+      <div className={styles.logo}>Logo</div>
       <div>
         <Links />
       </div>
