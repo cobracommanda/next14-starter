@@ -5,14 +5,14 @@ const PostCard = ({post}) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <div className={styles.imageContainer}>
+        {post.img &&<div className={styles.imageContainer}>
           <Image
-            src="https://images.pexels.com/photos/4061649/pexels-photo-4061649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src={post.img}
             alt=""
             className={styles.img}
             fill
           />
-        </div>
+        </div>}
         <span className={styles.date}>3.04.2024</span>
       </div>
       <div className={styles.bottom}>
@@ -20,7 +20,7 @@ const PostCard = ({post}) => {
         <p className={styles.desc}>
           {post.body}
         </p>
-        <Link href={`/blog/${post.id}`} className={styles.link}>READ MORE</Link>
+        <Link href={`/blog/${post.slug}`} className={styles.link}>READ MORE</Link>
       </div>
     </div>
   );

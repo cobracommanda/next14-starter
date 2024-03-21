@@ -8,6 +8,13 @@ import styles from "./contact.module.css";
 
 // const a = Math.random();
 //   console.log(a);
+
+export const metadata = {
+  title: "Next App Contact Page",
+  description: "Contact desc",
+};
+
+
 const ContactPage = () => {
   return (
     <div className={styles.container}>
