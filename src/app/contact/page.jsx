@@ -10,8 +10,8 @@ import styles from "./contact.module.css";
 //   console.log(a);
 
 export const metadata = {
-  title: "Next App Contact Page",
-  description: "Contact desc",
+  title: "Contact Page",
+  description: "Contact description",
 };
 
 

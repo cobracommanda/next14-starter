@@ -13,6 +13,17 @@ import { getPost } from "@/lib/data";
 //   return res.json();
 // };
 
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params;
+
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+    description: post.desc, 
+  };
+}; 
+
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
 
@@ -24,19 +35,14 @@ const SinglePostPage = async ({ params }) => {
 
   return (
     <div className={styles.container}>
-      {post.img && <div className={styles.imageContainer}>
-        <Image
-          src={post.img}
-          alt=""
-          className={styles.img}
-          fill
-        />
-      </div>}
+      {post.img && (
+        <div className={styles.imageContainer}>
+          <Image src={post.img} alt="" className={styles.img} fill />
+        </div>
+      )}
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post?.title}</h1>
         <div className={styles.detail}>
-          
-
           {post && (
             <Suspense fallback={<div>Loading...</div>}>
               <PostUser userId={post.userId} />
@@ -44,7 +50,9 @@ const SinglePostPage = async ({ params }) => {
           )}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
-            <span className={styles.detailValue}>{post.createdAt.toString().slice(4,16)}</span>
+            <span className={styles.detailValue}>
+              {post.createdAt.toString().slice(4, 16)}
+            </span>
           </div>
         </div>
         {console.log(post?.body)}
